@@ -1,5 +1,27 @@
 import tkinter  as tk
 def main():
+    import tkinter as tk  # Tkinter para la ventana
+    from urllib.request import urlopen  # Para descargar la imagen desde internet
+    from PIL import Image, ImageTk  # Pillow para trabajar con imágenes
+    from io import BytesIO  # Para convertir los datos de la imagen
+
+
+# Paso 1: Descargar la imagen de internet
+def descargarFondo():
+    urlImagen = "https://github.com/feliflaite/proyectos/commit/ba9bb0fe0322ab17c159a24fdf8743df67245834#diff-33761a265dade9a033a3c8019129c7d258f763255f1f5442e4ab295511be5959"
+    datosImagen = urlopen(urlImagen)  # Descargar la imagen
+    imagenBinaria = datosImagen.read()  # Obtener los datos de la imagen
+    # Paso 2: Convertir los datos binarios en una imagen que podamos mostrar
+    imagen = Image.open(BytesIO(imagenBinaria))
+    return imagen
+    
+def descargarPortada():
+    urlImagen = "https://github.com/feliflaite/proyectos/commit/ba9bb0fe0322ab17c159a24fdf8743df67245834#diff-9461eefa9b19f0a23b166f412d5d0825ea819237eca6f034e2b7bde43aa2b246"
+    datosImagen = urlopen(urlImagen)  # Descargar la imagen
+    imagenBinaria = datosImagen.read()  # Obtener los datos de la imagen
+    # Paso 2: Convertir los datos binarios en una imagen que podamos mostrar
+    imagen = Image.open(BytesIO(imagenBinaria))
+    return imagen
     #crear ventana principal
     ventana = tk.Tk ()
     ventana.title("Feli y Zoe")
